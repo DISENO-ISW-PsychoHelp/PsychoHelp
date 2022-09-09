@@ -223,10 +223,10 @@ export default {
       phone: ''
     },
     itemsState: [
-      'Single',
-      'Married',
-      'Widower',
-      'Divorced',
+      'SINGLE',
+      'MARRIED',
+      'WIDOWER',
+      'DIVORCED',
     ],
     itemsGender: [
       'Male',

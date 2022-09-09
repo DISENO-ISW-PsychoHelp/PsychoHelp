@@ -19,7 +19,7 @@
                   <v-card-title class="ml-10 mr-10 mb-2">Full name</v-card-title>
                   <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.name }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">Birthday</v-card-title>
-                  <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.age }}</v-card-subtitle>
+                  <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.birthdayDate }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">DNI</v-card-title>
                   <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.dni }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">Phone</v-card-title>
@@ -101,7 +101,7 @@
                     <template v-slot:activator="{ on, attrs }">
                       <v-text-field
                           outlined dense color="blue"
-                          v-model="age"
+                          v-model="birthdayDate"
                           :error-messages="ageErrors"
                           required
                           label="Birthday date"
@@ -109,12 +109,12 @@
                           readonly
                           v-bind="attrs"
                           v-on="on"
-                          @input="$v.age.$touch()"
-                          @blur="$v.age.$touch()"
+                          @input="$v.birthdayDate.$touch()"
+                          @blur="$v.birthdayDate.$touch()"
                       ></v-text-field>
                     </template>
                     <v-date-picker
-                        v-model="age"
+                        v-model="birthdayDate"
                         :active-picker.sync="activePicker"
                         :max="(new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10)"
                         min="1950-01-01"
@@ -256,7 +256,7 @@ export default {
   mixins: [validationMixin],
   validations: {
     name: { required, maxLength: maxLength(50)},
-    age: { required },
+    birthdayDate: { required },
     email: { required, email },
     phone: { required, maxLength: maxLength(9) },
     dni: { required, maxLength: maxLength(8) },
@@ -276,7 +276,7 @@ export default {
     dialog: false,
     correct: null,
     date: null,
-    age: null,
+    birthdayDate: null,
     activePicker: null,
     menu: false,
     itemsGenre: [
@@ -314,7 +314,7 @@ export default {
     editProfile(select){
       this.correct = select;
       this.name = this.profileData.name;
-      this.age = this.profileData.age;
+      this.birthdayDate = this.profileData.birthdayDate;
       this.email = this.profileData.email;
       this.phone = this.profileData.phone;
       this.dni = this.profileData.dni;
@@ -331,7 +331,7 @@ export default {
     saveProfile() {
       this.profileData.name = this.name;
       this.profileData.email = this.email;
-      this.profileData.age = this.age;
+      this.profileData.birthdayDate = this.birthdayDate;
       this.profileData.phone = this.phone;
       this.profileData.dni = this.dni;
       this.profileData.genre = this.genre;

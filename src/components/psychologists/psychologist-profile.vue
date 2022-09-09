@@ -5,7 +5,7 @@
         <v-row align="center" justify="center">
           <v-col cols="auto">
             <v-card max-height="400" max-width="400" elevation="10">
-              <v-img :src="profileData.img" max-height="400" max-width="400"></v-img>
+              <v-img :src="profileData.image" max-height="400" max-width="400"></v-img>
             </v-card>
             <v-card class="mt-2" elevation="10">
               <v-card-title class="justify-center" style="font-size:2em">{{ profileData.name }}</v-card-title>
@@ -134,14 +134,14 @@
                   ></v-text-field>
                   <v-text-field
                       outlined dense color="blue"
-                      v-model="img"
+                      v-model="image"
                       :error-messages="imgErrors"
                       :counter="6"
                       label="CMP Number"
                       prepend-icon="mdi-cellphone"
                       required
-                      @input="$v.img.$touch()"
-                      @blur="$v.img.$touch()"
+                      @input="$v.image.$touch()"
+                      @blur="$v.image.$touch()"
                   ></v-text-field>
                   <v-text-field
                       outlined dense color="blue"
@@ -266,7 +266,7 @@ export default {
     formation: { required },
     about: { required },
     cmp: { required, maxLength: maxLength(8) },
-    img: {required},
+    image: {required},
   },
   data: () => ({
     psychologists: [],
@@ -314,7 +314,7 @@ export default {
     editProfile(select){
       this.correct = select;
       this.name = this.profileData.name;
-      this.birthdayDate = this.profileData.birthdayDate;
+      this.birthdayDate = this.profileData.birthdayDate.slice(0, 10).replace('T', ' ');
       this.email = this.profileData.email;
       this.phone = this.profileData.phone;
       this.dni = this.profileData.dni;
@@ -324,7 +324,7 @@ export default {
       this.formation = this.profileData.formation;
       this.about = this.profileData.about;
       this.cmp = this.profileData.cmp;
-      this.img = this.profileData.img;
+      this.image = this.profileData.image;
       this.dialog = true;
     },
 
@@ -340,7 +340,7 @@ export default {
       this.profileData.formation = this.formation;
       this.profileData.about = this.about;
       this.profileData.cmp = this.cmp;
-      this.profileData.img = this.img;
+      this.profileData.image = this.image;
       PsychologistsApiService.update(this.profileData.id, this.profileData);
       this.dialog = false;
     },

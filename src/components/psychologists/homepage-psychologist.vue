@@ -2,7 +2,7 @@
   <v-container fluid>
   <v-row>
     <v-col cols="2">
-      <v-img class="psy" contain :src="loginData.img"></v-img>
+      <v-img class="psy" contain :src="loginData.image"></v-img>
       <v-card class="rounded-xl">
         <v-card-title class="mt-4">Welcome: {{loginData.name}}</v-card-title>
       </v-card>
@@ -118,7 +118,7 @@
         </v-card>
         <v-col  sm="4" md="2" lg="12" v-for="psychology in psychologists" :key="psychology">
           <v-card max-height="300" max-width="200" class="mx-auto mb-5" >
-            <v-img aspect-ratio="14:9" height="150" width="200" class="white--text align-end" :src="psychology.img">
+            <v-img aspect-ratio="14:9" height="150" width="200" class="white--text align-end" :src="psychology.image">
             </v-img>
             <v-card-subtitle class="pb-0">
               {{psychology.name}}
@@ -141,7 +141,7 @@
         <v-card>
           <v-col align="center">
             <v-avatar width="100" height="100">
-              <v-img :src="selectedPsychologist.img"></v-img>
+              <v-img :src="selectedPsychologist.image"></v-img>
             </v-avatar>
           </v-col>
           <v-card-title class="justify-center">{{ selectedPsychologist.name }}</v-card-title>

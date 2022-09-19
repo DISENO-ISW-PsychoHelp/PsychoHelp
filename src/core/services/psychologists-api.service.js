@@ -46,7 +46,7 @@ class PsychologistsApiService {
     }
 
     getScheduleFromPsycho(psychoId) {
-        return http.get(`/psychologists/schedule/${psychoId}`);
+        return http.get(`/psychologists/${psychoId}/schedules`);
     }
 
     getByIdSchedule(scheduleId) {

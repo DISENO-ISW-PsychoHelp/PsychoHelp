@@ -8,6 +8,7 @@
       </v-card>
       <v-spacer class="my-5"></v-spacer>
       <template>
+        <!-- CONTENIDO PARA ADD PUBLICACION -->
         <v-btn block color="primary" rounded @click="openDialog()">New Post</v-btn>
         <v-dialog v-model="dialog" max-width="800px">
           <v-flex class="mx-auto" v-if="formAdd">
@@ -214,12 +215,13 @@ export default {
 
     editedIndex: 0,
     deletedIndex: 0,
-    userId: "",
+    userId: 0,
     editedPublication:{
       id: 0,
       title: "",
       description: "",
-      img: "",
+      photoUrl: "",
+      content: "",
       createdAt: "",
       psychologistId: 0
     },
@@ -227,7 +229,9 @@ export default {
       id: 0,
       title: "",
       description: "",
-      img: "",
+      content: "",
+      tags: "",
+      photoUrl: "",
       createdAt: "",
       psychologistId: 0
     },
@@ -297,9 +301,11 @@ export default {
       }
       else {
         this.defaultPublication.createdAt = this.date
-        this.defaultPublication.img = "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+        this.defaultPublication.photoUrl = "https://www.dzoom.org.es/wp-content/uploads/2017/07/seebensee-2384369-810x540.jpg"
+        this.defaultPublication.tags = "hola que hace"
+        this.defaultPublication.content = "que hay de nuevo viejo"
         this.defaultPublication.psychologistId = this.userId
-        await PublicationsApiService.create(this.defaultPublication)
+        await PublicationsApiService.create(this.defaultPublication.psychologistId ,this.defaultPublication)
         // this.publications.push(this.defaultPublication)
 
         const response = await PublicationsApiService.getByPsychologistId(this.userId)

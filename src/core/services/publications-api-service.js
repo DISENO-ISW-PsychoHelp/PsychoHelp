@@ -24,8 +24,8 @@ class PublicationsApiService{
         return http.get(`/publications/psychologist/${psychologistId}`);
     }
 
-    create(data) {
-        return http.post("/publications",data);
+    create(psychologistId, data) {
+        return http.post(`/publications/psychologists/${psychologistId}`,data);
     }
 
     createTag(data){

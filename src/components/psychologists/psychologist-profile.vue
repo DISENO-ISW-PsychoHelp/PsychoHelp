@@ -19,7 +19,7 @@
                   <v-card-title class="ml-10 mr-10 mb-2">Full name</v-card-title>
                   <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.name }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">Birthday</v-card-title>
-                  <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.birthdayDate }}</v-card-subtitle>
+                  <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.birthdayDate.slice(0, 10).replace('T', ' ') }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">DNI</v-card-title>
                   <v-card-subtitle class="dateProfile" style="font-size:18px">{{ profileData.dni }}</v-card-subtitle>
                   <v-card-title class="ml-10 mr-10 mb-2">Phone</v-card-title>
@@ -331,7 +331,7 @@ export default {
     saveProfile() {
       this.profileData.name = this.name;
       this.profileData.email = this.email;
-      this.profileData.birthdayDate = this.birthdayDate;
+      this.profileData.birthdayDate = this.birthdayDate.slice(0, 10).replace('T', ' ');
       this.profileData.phone = this.phone;
       this.profileData.dni = this.dni;
       this.profileData.genre = this.genre;

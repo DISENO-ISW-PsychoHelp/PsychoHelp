@@ -77,11 +77,11 @@ export default {
     genre: { required },
   },
   data: () => ({
-
+    psychologists: [],
     id: 0,
     name: "",
     dni: "",
-    age: "",
+    birthdayDate: "",
     email: "",
     phone: "",
     cmp: "",
@@ -89,15 +89,17 @@ export default {
     formation: "",
     about: "",
     active: false,
-    new: false,
+    fresh: false,
     password:"",
     genre : "",
+    image : "",
     sessionType:"",
     genreItems: [
       'Male',
       'Female',
       'Others',
     ],
+    penaltiesCount: 0,
   }),
   async created() {
     try {
@@ -177,7 +179,7 @@ export default {
           id : this.id,
           name: this.name,
           dni: this.dni,
-          age: "age",
+          birthdayDate: "1984-05-10T00:00:00.000+00:00",
           email: this.email,
           phone: this.phone,
           cmp: this.cmp,
@@ -185,11 +187,13 @@ export default {
           formation: "formation",
           about: "about",
           active: this.active,
-          img: "imagenurl",
-          new: this.new,
+          image: "imagenurl",
+          fresh: this.fresh,
           sessionType: "tgrue",
           password: this.password,
-          genre : this.genre,}
+          genre : this.genre,
+          penaltiesCount: this.penaltiesCount,
+        }
         PsychologistsApiService.create(psychologistObject)
         alert("Registrado correctamente")
         this.$router.push({name: 'psychologist-login'})

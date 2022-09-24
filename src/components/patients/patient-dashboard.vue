@@ -8,10 +8,11 @@
                   :key="patient">
             <v-col align="center">
               <v-avatar class="mt-4" width="100" height="100">
-                <img :src="patient.img"></v-avatar>
+                <v-img :src="patient.img"></v-img>
+              </v-avatar>
             </v-col>
             <v-card-title class="justify-center font-weight-bold text-lg-body-1">{{ patient.lastName }} {{ patient.firstName }}</v-card-title>
-            <v-card-subtitle class="text-center" style="font-size:1rem">{{ patient.date }}
+            <v-card-subtitle class="text-center" style="font-size:1rem">{{ patient.date.slice(0, 10).replace('T', ' ') }}
             </v-card-subtitle>
             <v-card-text class="text-center" style="color: black">{{ patient.email }}</v-card-text>
             <v-card-actions>
@@ -33,9 +34,13 @@ export default {
     id: '',
     lastName: '',
     firstName: '',
+    password:'',
     email: '',
     date: '',
     img: '',
+    phone: '',
+    gender: '',
+    state: '',
     patients: [],
     psychologistId: '',
   }),

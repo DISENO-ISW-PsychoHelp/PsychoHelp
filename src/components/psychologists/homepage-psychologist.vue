@@ -73,7 +73,7 @@
                 <v-avatar size="40">
                   <img
                       alt="user"
-                      :src="publication.psychologist.img"
+                      :src="publication.psychologist.image"
                   >
                 </v-avatar>
                 <p class="ml-2 mt-4">{{publication.psychologist.name}}</p>

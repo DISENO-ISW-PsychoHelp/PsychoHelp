@@ -15,7 +15,7 @@ class AppointmentsApiService{
     }
 
     getPatientsByPsychologistId(psychoId) {
-        return http.get(`/appointment/psychologist/${psychoId}`);
+        return http.get(`/appointment/psychologist/${psychoId}/patient`);
     }
 
     getAppointmentByPatientIdAndPsychologistId(patientId, psychoId) {

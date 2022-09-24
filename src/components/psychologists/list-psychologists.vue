@@ -49,7 +49,7 @@
                 <v-card min-height="350" class="mx-auto">
                   <v-col align="center">
                     <v-avatar width="100" height="100">
-                      <v-img :src="psychologist.img"></v-img>
+                      <v-img :src="psychologist.image"></v-img>
                     </v-avatar>
                   </v-col>
                   <v-card-title class="justify-center font-weight-bold text-lg-h6">{{psychologist.name}}</v-card-title>
@@ -81,7 +81,7 @@
         <v-card>
           <v-col align="center">
             <v-avatar width="100" height="100">
-              <v-img :src="selectedPsychologist.img"></v-img>
+              <v-img :src="selectedPsychologist.image"></v-img>
             </v-avatar>
           </v-col>
           <v-card-title class="justify-center">{{ selectedPsychologist.name }}</v-card-title>
@@ -424,14 +424,15 @@ export default {
       console.log(dateToIso.toISOString());
       let newAppointment = {
         patientId: patientId,
-        psychoId: psychoId,
-        psychoNotes: "Notes",
-        scheduleDate: dateToIso,
+        psychologistId: psychoId,
+        scheduleDate: "String",
         createdAt: createdAt,
         motive: "Motive",
         personalHistory: "Personal History",
         testRealized: "Test Realized",
         treatment: "Treatment",
+        status: "APPROVED",
+        meetUrl: "string",
       };
       await AppointmentAppointmentService.createAppointment(newAppointment);
       const cardElement = this.elements.getElement("card");

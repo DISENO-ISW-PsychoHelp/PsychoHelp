@@ -16,7 +16,9 @@
               <v-col cols="3">
                 <h3 class="ml-4 mr-auto">
                   <v-icon class="ml-auto" color="white">mdi-account</v-icon>
-                  Psychologist: {{getPsychologistName(appointment.psychoId)}}</h3>
+                  Psychologist: {{appointment.psychologist.name}}
+<!--                  Psychologist: {{getPsychologistName(appointment.psychoId)}}-->
+                </h3>
               </v-col>
             </v-card-text>
           </v-card>
@@ -175,6 +177,7 @@ export default {
     appointmentId: 0,
     activePicker: null,
     dateApp: null,
+    psychologist: "",
   }),
 
   watch: {
@@ -220,9 +223,9 @@ export default {
       this.dialogSelected = false;
     },
 
-    getPsychologistName(id) {
-      return this.psychologists.find(psychologists => psychologists.id === id).name;
-    },
+    // getPsychologistName(id) {
+    //   return this.psychologists.find(psychologists => psychologists.id === id).name;
+    // },
 
     openReScheduleDialog(appointmentId) {
       this.retrievePsychoSchedules(appointmentId);

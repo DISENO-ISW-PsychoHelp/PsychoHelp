@@ -23,11 +23,11 @@ class AppointmentsApiService{
     }
 
     getAppointmentsByPsychologistId(psychoId) {
-        return http.get(`/appointment/psychologists/${psychoId}`);
+        return http.get(`/appointment/psychologist/${psychoId}`);
     }
 
     getAppointmentsByPatientId(patientId) {
-        return http.get(`/appointment/patients/${patientId}`);
+        return http.get(`/appointment/patient/${patientId}`);
     }
 
     deleteAppointment(id) {

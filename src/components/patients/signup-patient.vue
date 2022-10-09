@@ -191,10 +191,10 @@ export default {
     state: null,
     gender: null,
     itemsState: [
-      'Single',
-      'Married',
-      'Widower',
-      'Divorced',
+      'SINGLE',
+      'MARRIED',
+      'WIDOWER',
+      'DIVORCED',
     ],
     itemsGender: [
       'Male',
